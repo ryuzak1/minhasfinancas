@@ -32,7 +32,6 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new ErroAutenticacao("Senha incorreta");
         }
 
-
         return usuario.get();
     }
 

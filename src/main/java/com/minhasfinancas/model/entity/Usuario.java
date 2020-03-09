@@ -20,7 +20,6 @@ public class Usuario {
     private Long id;
 
 
-
     @Column(name = "nome")
     private String nome;
 

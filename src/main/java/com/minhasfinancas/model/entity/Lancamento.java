@@ -9,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "lancamento",schema = "financas")
+
 public class Lancamento {
 
     @Id
