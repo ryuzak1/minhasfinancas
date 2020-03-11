@@ -7,6 +7,7 @@ import com.minhasfinancas.model.respository.UsuarioRepository;
 import com.minhasfinancas.service.Impl.UsuarioServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -29,13 +30,14 @@ public class UsuarioServiceTest {
     @MockBean
     UsuarioService service;
 
-    @Before
+    @BeforeEach
     public void setup(){
-        //repository= Mockito.mock(UsuarioRepository.class);
+        repository= Mockito.mock(UsuarioRepository.class);
         service = new UsuarioServiceImpl(repository);
 
     }
 
+    @Test
     public void deveAutenticarUsuarioComSucesso(){
 
         String email = "jose@jose";
@@ -45,6 +47,13 @@ public class UsuarioServiceTest {
 
         Usuario result = service.autenciar(email,senha);
         Assertions.assertThat(result).isNotNull();
+    }
+    @Test
+    public void deveLancarErroQuandoNEncontrarUsuarioCadastrado(){
+
+        Mockito.when(repository.findByEmail(Mockito.anyString())).thenReturn(Optional.empty());
+        service.autenciar("jose@jose.com","senha");
+
     }
 
     @Test
