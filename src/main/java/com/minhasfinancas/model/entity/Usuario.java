@@ -13,6 +13,9 @@ import javax.persistence.*;
 @Data
 @Builder
 public class Usuario {
+    public void ok(){
+
+    }
 
     @Id
     @Column(name = "id")
