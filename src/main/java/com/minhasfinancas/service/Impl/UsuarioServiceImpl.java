@@ -34,9 +34,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         return usuario.get();
     }
-public void ok(){
-
-}
 
     @Override
     @Transactional
