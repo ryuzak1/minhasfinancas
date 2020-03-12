@@ -1,6 +1,7 @@
 package com.minhasfinancas.api.resource;
 
 import com.minhasfinancas.api.dto.UsuarioDTO;
+import com.minhasfinancas.excepiton.ErroAutenticacao;
 import com.minhasfinancas.model.entity.Usuario;
 import com.minhasfinancas.service.UsuarioService;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,18 @@ public class UsuarioResource {
         this.service = service;
     }
 
+    @PostMapping("/autenticar")
+    public ResponseEntity autenticar(@RequestBody UsuarioDTO usuarioDTO){
+        try {
+            Usuario usuario = service.autenciar(usuarioDTO.getEmail(),usuarioDTO.getSenha());
+            return ResponseEntity.ok(usuario);
+        }catch (ErroAutenticacao e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+
+        }
+
+
+    }
 
     @PostMapping
     public ResponseEntity salvar(@RequestBody UsuarioDTO usuarioDTO) {
