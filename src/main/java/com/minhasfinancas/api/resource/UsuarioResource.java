@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/usuario")
 public class UsuarioResource {
 
+
     private UsuarioService service;
 
     public UsuarioResource(UsuarioService service) {
