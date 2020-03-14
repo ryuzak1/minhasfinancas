@@ -4,20 +4,22 @@ import com.minhasfinancas.api.dto.UsuarioDTO;
 import com.minhasfinancas.excepiton.ErroAutenticacao;
 import com.minhasfinancas.model.entity.Usuario;
 import com.minhasfinancas.service.UsuarioService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/usuario")
+@RequiredArgsConstructor
 public class UsuarioResource {
 
 
-    private UsuarioService service;
+    private final UsuarioService service;
 
-    public UsuarioResource(UsuarioService service) {
-        this.service = service;
-    }
+//    public UsuarioResource(UsuarioService service) {
+//        this.service = service;
+//    }
 
     @PostMapping("/autenticar")
     public ResponseEntity autenticar(@RequestBody UsuarioDTO usuarioDTO){

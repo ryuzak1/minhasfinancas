@@ -4,6 +4,7 @@ import com.minhasfinancas.model.entity.Lancamento;
 import com.minhasfinancas.model.enums.StatusLancamento;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface LancamentoService {
 
@@ -12,5 +13,6 @@ public interface LancamentoService {
     void deletar(Lancamento lancamento);
     List<Lancamento> buscar(Lancamento lancamentoFiltro);
     void atualizarStatus(Lancamento lancamento, StatusLancamento statusLancamento);
+    Optional<Lancamento> obterPorID(Long id);
 
 }

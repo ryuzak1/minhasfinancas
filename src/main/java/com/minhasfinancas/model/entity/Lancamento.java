@@ -2,6 +2,10 @@ package com.minhasfinancas.model.entity;
 
 import com.minhasfinancas.model.enums.StatusLancamento;
 import com.minhasfinancas.model.enums.TipoLancamento;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,7 +13,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "lancamento",schema = "financas")
-
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Lancamento {
 
     @Id
