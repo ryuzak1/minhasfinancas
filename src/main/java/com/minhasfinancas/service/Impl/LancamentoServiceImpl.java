@@ -23,7 +23,6 @@ public class LancamentoServiceImpl implements LancamentoService {
         this.repository = repository;
     }
 
-
     @Override
     @Transactional
     public Lancamento salvar(Lancamento lancamento) {
@@ -69,6 +68,7 @@ public class LancamentoServiceImpl implements LancamentoService {
 
     @Override
     public Optional<Lancamento> obterPorID(Long id) {
+
         return repository.findById(id);
     }
 

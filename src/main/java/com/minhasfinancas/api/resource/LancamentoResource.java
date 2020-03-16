@@ -24,10 +24,7 @@ public class LancamentoResource {
     private final LancamentoService service;
     private final UsuarioService usuarioService;
 
-//    public LancamentoResource(LancamentoService service,UsuarioService usuarioService) {
-//        this.service = service;
-//        this.usuarioService = usuarioService;
-//    }
+
 
     @PostMapping
     public ResponseEntity salvar(@RequestBody LancamentoDTO lancamentoDTO) {
